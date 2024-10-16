@@ -1,0 +1,29 @@
+name: Check and Update Dotfiles
+
+on:
+  schedule:
+    - cron: '0 0 */5 * *'  # 每五天运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  check-and-update:
+    runs-on: macos-latest  # 使用最新的 macOS 运行环境
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config user.name 'dawushi97'
+          git config user.email 'dawushi97@gmail.com'
+
+      - name: Check for changes and commit
+        run: |
+          git add .
+          if [ -n "$(git status --porcelain)" ]; then
+            changes=$(git status --porcelain | awk '{print $2}' | tr '\n' ', ' | sed 's/,$//')
+            git commit -m "Auto update dotfiles $(date +'%Y-%m-%d'): $changes"
+            git push
+          else
+            echo "No changes to commit"
+          fi
