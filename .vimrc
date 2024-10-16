@@ -1,7 +1,10 @@
+let mapleader = " "
 set clipboard=unnamed
 
 inoremap jk <Esc>
 vnoremap jk <Esc>
+noremap <leader>w :wq<CR>
+noremap <leader>q :q<CR>
 
 
 syntax enable
