@@ -124,4 +124,3 @@ alias python=python3
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/sbin:$PATH"
-#TEST
