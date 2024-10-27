@@ -119,8 +119,18 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias python=python3
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/sbin:$PATH"
+# Qt6 配置
+export PATH="/opt/homebrew/Cellar/qt/6.7.2_1/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/Cellar/qt/6.7.2_1/lib"
+export CPPFLAGS="-I/opt/homebrew/Cellar/qt/6.7.2_1/include"
+
+# Qt5 配置 (注意使用 $LDFLAGS 和 $CPPFLAGS 来追加而不是覆盖)
+export PATH="/opt/homebrew/Cellar/qt@5/5.15.15/bin:$PATH"
+export LDFLAGS="$LDFLAGS -L/opt/homebrew/Cellar/qt@5/5.15.15/lib"
+export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/qt@5/5.15.15/include"
