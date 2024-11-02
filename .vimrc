@@ -19,7 +19,8 @@ set shiftwidth=4
 set timeoutlen=1000 ttimeoutlen=0
 set laststatus=2
 set hidden
-utocmd FileType gitcommit setlocal spell    " 启用拼写检查
+
+autocmd FileType gitcommit setlocal spell    " 启用拼写检查
 autocmd FileType gitcommit setlocal textwidth=72  " 设置72字符换行
 autocmd FileType gitcommit setlocal colorcolumn=50,72  " 显示50和72字符的竖线
 autocmd FileType gitcommit setlocal spelllang=en_us  " 设置拼写检查语言
