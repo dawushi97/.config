@@ -157,7 +157,6 @@ function zvm_after_init() {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias python=python3
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

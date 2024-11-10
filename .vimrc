@@ -28,3 +28,19 @@ autocmd FileType gitcommit setlocal spelllang=en_us  " 设置拼写检查语言
 " 突出显示第一行（标题行）
 autocmd FileType gitcommit syntax on
 autocmd FileType gitcommit highlight gitcommitSummary ctermfg=blue guifg=blue
+" 在不同模式下使用不同的光标样式
+" 1 -> blinking block
+" 2 -> solid block 
+" 3 -> blinking underscore
+" 4 -> solid underscore
+" 5 -> blinking vertical bar
+" 6 -> solid vertical bar
+
+let &t_SI = "\e[6 q"  " INSERT 模式使用竖线光标
+let &t_EI = "\e[2 q"  " NORMAL 模式使用方块光标
+let &t_SR = "\e[4 q"  " REPLACE 模式使用下划线光标
+
+" 确保vim启动时为方块光标
+autocmd VimEnter * silent !echo -ne "\e[2 q"
+" 确保退出时重置光标
+autocmd VimLeave * silent !echo -ne "\e[6 q"
