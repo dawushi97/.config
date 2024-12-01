@@ -173,3 +173,6 @@ export CPPFLAGS="-I/opt/homebrew/Cellar/qt/6.7.2_1/include"
 export PATH="/opt/homebrew/Cellar/qt@5/5.15.15/bin:$PATH"
 export LDFLAGS="$LDFLAGS -L/opt/homebrew/Cellar/qt@5/5.15.15/lib"
 export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/qt@5/5.15.15/include"xport CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/qt@5/5.15.15/include"xport CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/qt@5/5.15.15/include"
+
+# Added by Windsurf
+export PATH="/Users/zhangyishun/.codeium/windsurf/bin:$PATH"
