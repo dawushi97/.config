@@ -174,5 +174,14 @@ export PATH="/opt/homebrew/sbin:$PATH"
 #export LDFLAGS="$LDFLAGS -L/opt/homebrew/Cellar/qt@5/5.15.15/lib"
 #export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/qt@5/5.15.15/include"xport CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/qt@5/5.15.15/include"xport CPPFLAGS="$CPPFLAGS -I/opt/homebrew/Cellar/qt@5/5.15.15/include"
 
+#yazi funcitons
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
 # Added by Windsurf
 export PATH="/Users/zhangyishun/.codeium/windsurf/bin:$PATH"
