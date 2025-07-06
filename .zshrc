@@ -90,7 +90,7 @@ plugins=(
 	zsh-autosuggestions 
 	zsh-syntax-highlighting
 	z
-	zsh-vi-mode
+	#zsh-vi-mode
 	brew
 )
 
