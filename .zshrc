@@ -195,3 +195,5 @@ function y() {
 }
 # Added by Windsurf
 export PATH="/Users/zhangyishun/.codeium/windsurf/bin:$PATH"
+
+. "$HOME/.local/bin/env"
