@@ -197,3 +197,4 @@ function y() {
 export PATH="/Users/zhangyishun/.codeium/windsurf/bin:$PATH"
 
 . "$HOME/.local/bin/env"
+export OPENROUTER_API_KEY="***REDACTED***"
