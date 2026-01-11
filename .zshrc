@@ -201,3 +201,16 @@ export PATH="/Users/zhangyishun/.codeium/windsurf/bin:$PATH"
 export OPENROUTER_API_KEY="***REDACTED***"
 
 alias cpwd='pwd | pbcopy'
+
+# bun completions
+[ -s "/Users/zhangyishun/.bun/_bun" ] && source "/Users/zhangyishun/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Amp CLI
+export PATH="/Users/zhangyishun/.amp/bin:$PATH"
+
+# opencode
+export PATH=/Users/zhangyishun/.opencode/bin:$PATH
