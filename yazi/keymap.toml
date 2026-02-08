@@ -1,0 +1,29 @@
+[[manager.prepend_keymap]]
+on   = [ "b", "a" ]
+run  = "plugin mactag add"
+desc = "Tag selected files"
+
+[[manager.prepend_keymap]]
+on   = [ "b", "r" ]
+run  = "plugin mactag remove"
+desc = "Untag selected files"
+
+[[manager.prepend_keymap]]
+on   = [ "<C-n>" ]
+run  = "arrow 1"
+desc = "Move down"
+
+[[manager.prepend_keymap]]
+on   = [ "<C-p>" ]
+run  = "arrow -1"
+desc = "Move up"
+
+[[pick.prepend_keymap]]
+on   = [ "<C-n>" ]
+run  = "arrow 1"
+desc = "Move down"
+
+[[pick.prepend_keymap]]
+on   = [ "<C-p>" ]
+run  = "arrow -1"
+desc = "Move up"

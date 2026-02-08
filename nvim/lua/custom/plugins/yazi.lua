@@ -9,22 +9,22 @@ return {
     lazy = true,
   },
   keys = {
-    -- 自定义快捷键，可以根据需要调整
+    -- Yazi keymaps based on official recommendations
     {
-      '<leader>z',
+      '<leader>y',
       '<cmd>Yazi<cr>',
-      desc = '在当前文件位置打开yazi',
+      desc = 'Open [Y]azi at current file',
       mode = { 'n', 'v' },
     },
     {
-      '<leader>Z',
+      '<leader>Y',
       '<cmd>Yazi cwd<cr>',
-      desc = '在Neovim工作目录打开yazi',
+      desc = 'Open [Y]azi at CWD',
     },
     {
-      '<leader>tz',
+      '<leader>ty',
       '<cmd>Yazi toggle<cr>',
-      desc = '切换上一个yazi会话',
+      desc = '[T]oggle [Y]azi session',
     },
   },
   opts = {

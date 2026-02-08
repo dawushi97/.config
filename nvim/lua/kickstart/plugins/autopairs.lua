@@ -4,13 +4,14 @@
 return {
   'windwp/nvim-autopairs',
   event = 'InsertEnter',
-  -- Optional dependency
-  dependencies = { 'hrsh7th/nvim-cmp' },
+  -- Optional dependency - updated for blink.cmp
+  dependencies = { 'saghen/blink.cmp' },
   config = function()
     require('nvim-autopairs').setup {}
-    -- If you want to automatically add `(` after selecting a function or method
-    local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-    local cmp = require 'cmp'
-    cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+    -- Integration with blink.cmp
+    local ok, blink = pcall(require, 'blink.cmp')
+    if ok then
+      -- blink.cmp has built-in autopairs support, no additional setup needed
+    end
   end,
 }

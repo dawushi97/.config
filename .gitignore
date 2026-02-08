@@ -5,6 +5,23 @@
 !dotfiles/
 !dotfiles/**
 
+# 允许 nvim 配置
+!nvim/
+!nvim/**
+
+# 允许 kitty 配置（忽略第三方主题仓库）
+!kitty/
+!kitty/**
+kitty/kitty-themes/
+
+# 允许 tmux 配置
+!tmux/
+!tmux/**
+
+# 允许 yazi 配置
+!yazi/
+!yazi/**
+
 # 允许根目录配置文件
 !.gitignore
 !CLAUDE.md

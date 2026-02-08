@@ -1,5 +1,14 @@
 --  See `:help vim.keymap.set()`
 
+-- 撤销后保持光标位置（避免 LSP auto-import 导致跳到文件头）
+vim.keymap.set('n', 'u', function()
+  local pos = vim.api.nvim_win_get_cursor(0)
+  local ok = pcall(vim.cmd, 'undo')
+  if ok then
+    pcall(vim.api.nvim_win_set_cursor, 0, pos)
+  end
+end, { desc = 'Undo and restore cursor position' })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')

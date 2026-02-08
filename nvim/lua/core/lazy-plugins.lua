@@ -20,6 +20,8 @@ require('lazy').setup({
 
   require 'custom.plugins.noice',
 
+  require 'custom.plugins.markdown-preview',
+
   require 'kickstart.plugins.gitsigns',
 
   require 'kickstart.plugins.which-key',

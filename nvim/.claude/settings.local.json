@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/zhangyishun/.local/share/nvim/lazy/nvim-treesitter-cpp-tools/**)",
+      "Read(//Users/zhangyishun/.local/share/nvim/lazy/nvim-treesitter-cpp-tools/**)"
+    ]
+  },
+  "enableAllProjectMcpServers": false
+}

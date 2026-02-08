@@ -2,61 +2,63 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Critical Rules
+
+- **NEVER modify `init2.lua`** - This is the kickstart.nvim reference configuration and must remain unchanged
+
 ## Configuration Architecture
 
-This is a Neovim configuration based on kickstart.nvim with modular customizations. The configuration follows a structured approach:
+This is a Neovim configuration based on kickstart.nvim with modular customizations.
 
-### Core Structure
-- `init.lua` - Entry point that loads core modules
-- `lua/core/` - Core configuration modules:
-  - `options.lua` - Vim options and settings (2-space tabs, auto-save on buffer leave)
-  - `keymaps.lua` - Basic keymaps and autocommands (TMUX-aware window navigation)
-  - `lazy-bootstrap.lua` - Lazy.nvim plugin manager bootstrap
-  - `lazy-plugins.lua` - Plugin specifications and setup
+### Loading Order
+1. `init.lua` sets leader key (space) and Nerd font flag, then loads:
+   - `lua/core/options.lua` - Vim settings (2-space tabs, auto-save on BufLeave, relative line numbers)
+   - `lua/core/keymaps.lua` - Basic keymaps with TMUX-aware window navigation
+   - `lua/core/lazy-bootstrap.lua` - Installs lazy.nvim if missing
+   - `lua/core/lazy-plugins.lua` - Central plugin registry
 
-### Plugin Organization
-- `lua/kickstart/plugins/` - Standard kickstart plugins (LSP, telescope, treesitter, etc.)
-- `lua/custom/plugins/` - Custom plugin configurations:
-  - Individual plugin files (toggleterm, gruvbox, snacks, etc.)
-  - `init.lua` - Empty placeholder for additional plugins
-- `after/ftplugin/` - Filetype-specific configurations (mostly empty)
+### Plugin Sources
+- `lua/kickstart/plugins/` - Standard plugins (LSP, telescope, treesitter, completion via blink.cmp)
+- `lua/custom/plugins/` - Custom plugins (toggleterm, gruvbox, snacks, yazi, cpp-tools, etc.)
+- `after/ftplugin/` - Filetype-specific settings (cpp.lua has treesitter-cpp-tools keymaps)
 
-### Language Support
-- `lsp/` directory contains language-specific LSP configurations:
-  - `init.lua` - LSP initialization (currently empty)
-  - `handlers.lua` - Custom LSP handlers
-  - `languages/` - Per-language LSP setup (cpp, go, lua, python, rust, typescript)
+### LSP Architecture
+Main config in `lua/kickstart/plugins/lspconfig.lua` with Mason for auto-installation. Per-language overrides go in `lsp/languages/` (currently only cpp.lua has custom clangd settings).
 
-## Key Configuration Details
+Active servers: clangd (C++), gopls (Go), lua_ls (Lua)
 
-### Plugin Manager
-Uses lazy.nvim with plugins loaded from both kickstart and custom directories. Notable plugins:
-- Language servers via mason.nvim/lspconfig
-- File explorer via neo-tree
-- Terminal integration via toggleterm
-- Theme: gruvbox (tokyonight commented out)
-- Enhanced UI via noice.nvim and snacks.nvim
+## Key Keymaps
 
-### Development Settings
-- 2-space indentation across all file types
-- Auto-save on buffer leave
-- Relative line numbers enabled
-- Nerd font support enabled (`vim.g.have_nerd_font = true`)
-- Clipboard integration with system clipboard
+### LSP (when attached)
+- `gd` - Goto definition, `gr` - Goto references, `gI` - Goto implementation
+- `gD` - Goto declaration (header in C)
+- `<leader>rn` - Rename, `<leader>ca` - Code action
+- `<leader>ds` - Document symbols, `<leader>ws` - Workspace symbols
+- `<leader>th` - Toggle inlay hints
 
-### TMUX Integration
-Window navigation keymaps are conditionally disabled when running inside TMUX (handled in `core/keymaps.lua`).
+### Terminal (toggleterm)
+- `<C-\>` - Toggle terminal
+- `<leader>tt/tv/tf` - Terminal horizontal/vertical/float
+- `<leader>tr` - Compile and run C++ file (g++ -std=c++17)
+- `<leader>tg` - Run Go (auto-detects go.mod projects)
+
+### C++ (after/ftplugin/cpp.lua)
+- `<leader>tdc` - Define class member functions (treesitter-cpp-tools)
+- `<leader>tr3` - Add Rule of 3 functions
+- `<leader>tr5` - Add Rule of 5 functions
+
+### File Management
+- `<leader>y` - Open Yazi at current file
+- `<leader>Y` - Open Yazi at CWD
 
 ## Working with This Configuration
 
-### Adding New Plugins
-Add plugin specifications to `lua/core/lazy-plugins.lua` or create new files in `lua/custom/plugins/`.
+### Adding Plugins
+Create a file in `lua/custom/plugins/newplugin.lua` returning a lazy.nvim spec table.
 
-### Language-Specific Configuration
-Add filetype settings in `after/ftplugin/` or LSP configurations in `lsp/languages/`.
+### Adding LSP Servers
+1. Add server name to `servers` table in `lua/kickstart/plugins/lspconfig.lua`
+2. Optionally add detailed config in `lsp/languages/servername.lua`
 
 ### Testing Changes
-After making configuration changes, restart Neovim or use `:source %` to reload current file. Use `:Lazy` to manage plugin installations.
-
-### Plugin Dependencies
-Check `lazy-lock.json` for exact plugin versions. This file should be tracked in version control for reproducible setups.
+Restart Neovim or `:source %` for current file. Use `:Lazy` for plugin management, `:Mason` for LSP servers.

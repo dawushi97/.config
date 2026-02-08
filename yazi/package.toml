@@ -1,0 +1,7 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:mactag"
+rev = "55bf699"
+hash = "f4ee8d1a119fc869ffcd7e8a71b1469e"
+
+[flavor]
+deps = []
