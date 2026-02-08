@@ -1,0 +1,7 @@
+[user]
+	name = dawushi97
+	email = dawushi97@gmail.com
+[merge]
+	tool = vimdiff
+[core]
+	quotepath = false

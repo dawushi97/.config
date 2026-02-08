@@ -22,8 +22,10 @@ create_symlink() {
 
 # 创建配置文件的符号链接
 create_symlink "$DOTFILES_DIR/.zshrc" ~/.zshrc
-create_symlink "$DOTFILES_DIR/.vimrc" ~/.vimrc  
+create_symlink "$DOTFILES_DIR/.vimrc" ~/.vimrc
 create_symlink "$DOTFILES_DIR/.tmux.conf" ~/.tmux.conf
+create_symlink "$DOTFILES_DIR/.gitconfig" ~/.gitconfig
+create_symlink "$DOTFILES_DIR/.p10k.zsh" ~/.p10k.zsh
 
 echo
 echo "Dotfiles 安装完成！"
