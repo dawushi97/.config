@@ -1,37 +1,18 @@
-# Mac系统文件
+# 默认忽略所有内容，按需显式添加
+*
+
+# 允许 dotfiles 目录（原有配置）
+!dotfiles/
+!dotfiles/**
+
+# 允许根目录配置文件
+!.gitignore
+!CLAUDE.md
+!README.md
+
+# 敏感信息
+*.secret
+.env*
+
+# Mac 系统文件
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Sublime Text
-*.sublime-workspace
-*.sublime-project
-
-# C++编译输出
-*.out
-*.o
-*.obj
-*.exe
-*.dll
-*.dylib
-*.so
-*.a
-*.lib
-
-# 编译目录
-build/
-debug/
-release/
-bin/
-obj/
-
-# CMake
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
-
-# 其他
-*.log
-*.tmp
-.cache/

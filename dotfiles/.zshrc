@@ -198,9 +198,12 @@ function y() {
 export PATH="/Users/zhangyishun/.codeium/windsurf/bin:$PATH"
 
 . "$HOME/.local/bin/env"
-export OPENROUTER_API_KEY="***REDACTED***"
+# API keys loaded from ~/.env.secret (not tracked by git)
+[ -f ~/.env.secret ] && source ~/.env.secret
 
 alias cpwd='pwd | pbcopy'
+
+alias tmsplit="~/.config/tmux/scripts/layout-1left-2right.sh"
 
 # bun completions
 [ -s "/Users/zhangyishun/.bun/_bun" ] && source "/Users/zhangyishun/.bun/_bun"
@@ -212,5 +215,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Amp CLI
 export PATH="/Users/zhangyishun/.amp/bin:$PATH"
 
-# opencode
-export PATH=/Users/zhangyishun/.opencode/bin:$PATH
+
+
+alias update-roam-mcp="cd ~/roam-mcp && git pull && npm install && npm run build"
+
+# zoxide - 智能目录跳转
+eval "$(zoxide init zsh)"
