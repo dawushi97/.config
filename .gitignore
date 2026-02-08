@@ -22,6 +22,10 @@ kitty/kitty-themes/
 !yazi/
 !yazi/**
 
+# 允许 claude 配置（~/.claude/ 的副本）
+!claude/
+!claude/**
+
 # 允许根目录配置文件
 !.gitignore
 !CLAUDE.md

@@ -27,6 +27,23 @@ create_symlink "$DOTFILES_DIR/.tmux.conf" ~/.tmux.conf
 create_symlink "$DOTFILES_DIR/.gitconfig" ~/.gitconfig
 create_symlink "$DOTFILES_DIR/.p10k.zsh" ~/.p10k.zsh
 
+# 同步 Claude Code 配置（使用复制而非软链接，避免兼容性问题）
+CLAUDE_SRC="$DOTFILES_DIR/../claude"
+CLAUDE_DST="$HOME/.claude"
+if [ -d "$CLAUDE_SRC" ]; then
+    echo
+    echo "同步 Claude Code 配置..."
+    mkdir -p "$CLAUDE_DST/commands" "$CLAUDE_DST/sounds"
+    for f in settings.json keybindings.json CLAUDE.md; do
+        if [ -f "$CLAUDE_SRC/$f" ]; then
+            echo "复制: $f -> $CLAUDE_DST/$f"
+            cp "$CLAUDE_SRC/$f" "$CLAUDE_DST/$f"
+        fi
+    done
+    cp -r "$CLAUDE_SRC/commands/"* "$CLAUDE_DST/commands/" 2>/dev/null
+    cp -r "$CLAUDE_SRC/sounds/"* "$CLAUDE_DST/sounds/" 2>/dev/null
+fi
+
 echo
 echo "Dotfiles 安装完成！"
 echo "请重新启动终端或运行 'source ~/.zshrc' 来应用配置。"

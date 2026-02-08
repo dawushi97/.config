@@ -1,0 +1,21 @@
+{
+  "cleanupPeriodDays": 99999,
+  "includeCoAuthoredBy": false,
+  "model": "opus",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /Users/zhangyishun/.claude/sounds/koiroylers-rapid-pop-353632.mp3",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true
+  }
+}
