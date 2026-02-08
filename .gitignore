@@ -28,7 +28,6 @@ kitty/kitty-themes/
 
 # 允许根目录配置文件
 !.gitignore
-!CLAUDE.md
 !README.md
 
 # 敏感信息
