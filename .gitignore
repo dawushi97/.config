@@ -34,5 +34,9 @@ kitty/kitty-themes/
 *.secret
 .env*
 
+# CLAUDE.md (local AI instructions, not tracked except claude/)
+CLAUDE.md
+!claude/CLAUDE.md
+
 # Mac 系统文件
 .DS_Store
