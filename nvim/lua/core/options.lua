@@ -62,6 +62,17 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Treesitter-based code folding (only fold function bodies)
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
+vim.treesitter.query.set('cpp', 'folds', '(function_definition body: (compound_statement) @fold)')
+vim.treesitter.query.set('c', 'folds', '(function_definition body: (compound_statement) @fold)')
+vim.treesitter.query.set('lua', 'folds', '(function_declaration body: (block) @fold)')
+vim.treesitter.query.set('go', 'folds', '(function_declaration body: (block) @fold)')
+
 -- Automatically save when leaving the buffer
 vim.api.nvim_create_autocmd({ 'BufLeave' }, {
   callback = function()
