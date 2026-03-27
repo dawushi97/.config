@@ -89,8 +89,7 @@ plugins=(
 	git 
 	zsh-autosuggestions 
 	zsh-syntax-highlighting
-	z
-	#zsh-vi-mode
+	zsh-vi-mode
 	brew
 )
 
@@ -128,8 +127,8 @@ export FZF_CTRL_T_OPTS="
 
 source $ZSH/oh-my-zsh.sh
 
-# FZF 加载 (需要放在 zsh-vi-mode 后面)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# zsh-vi-mode 优化配置
+ZVM_KEYTIMEOUT=1                    # 减少模式切换延迟
 
 # 修复 zsh-vi-mode 和 fzf 键位冲突
 function zvm_after_init() {
@@ -218,6 +217,19 @@ export PATH="/Users/zhangyishun/.amp/bin:$PATH"
 
 
 alias update-roam-mcp="cd ~/roam-mcp && git pull && npm install && npm run build"
+
+# twitter-cli only auto-loads config.yaml from the current directory.
+# Fall back to ~/config.yaml when no project-local config is present.
+twitter() {
+  if [[ -f "$PWD/config.yaml" || ! -f "$HOME/config.yaml" ]]; then
+    command twitter "$@"
+  else
+    (
+      builtin cd "$HOME" || exit 1
+      command twitter "$@"
+    )
+  fi
+}
 
 # zoxide - 智能目录跳转
 eval "$(zoxide init zsh)"
