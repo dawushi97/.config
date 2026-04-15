@@ -233,3 +233,4 @@ twitter() {
 
 # zoxide - 智能目录跳转
 eval "$(zoxide init zsh)"
+export PATH="$HOME/.hermes/hermes-agent/venv/bin:$PATH"
