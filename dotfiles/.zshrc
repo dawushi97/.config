@@ -89,7 +89,7 @@ plugins=(
 	git 
 	zsh-autosuggestions 
 	zsh-syntax-highlighting
-	zsh-vi-mode
+	# zsh-vi-mode
 	brew
 )
 
@@ -234,3 +234,6 @@ twitter() {
 # zoxide - 智能目录跳转
 eval "$(zoxide init zsh)"
 export PATH="$HOME/.hermes/hermes-agent/venv/bin:$PATH"
+
+# Twitter CLI: read cookies from Dia browser
+export TWITTER_BROWSER=dia
