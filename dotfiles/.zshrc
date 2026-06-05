@@ -237,3 +237,6 @@ export PATH="$HOME/.hermes/hermes-agent/venv/bin:$PATH"
 
 # Twitter CLI: read cookies from Dia browser
 export TWITTER_BROWSER=dia
+
+# Hermes Agent — ensure ~/.local/bin is on PATH
+export PATH="$HOME/.local/bin:$PATH"
