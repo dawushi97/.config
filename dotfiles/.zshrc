@@ -240,3 +240,6 @@ export TWITTER_BROWSER=dia
 
 # Hermes Agent — ensure ~/.local/bin is on PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Open the Hot 100 workspace
+alias hot='open "$HOME/ME/study/hot-100/index.html"'
