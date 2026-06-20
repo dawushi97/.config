@@ -243,3 +243,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Open the Hot 100 workspace
 alias hot='open "$HOME/ME/study/hot-100/index.html"'
+
+# youtube-notetaker (Claude Code plugin): library location
+export VIDEO_LIBRARY_DIR="$HOME/ME/study/video-deepdives"
